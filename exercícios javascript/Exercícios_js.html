@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios JavaScript - Refatorados (Exercício 20)</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .parte { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; background-color: white; border-radius: 5px; }
+        .resultado { margin-top: 10px; padding: 10px; background-color: #e9e9e9; border: 1px solid #ddd; white-space: pre-wrap; font-family: monospace; border-radius: 3px; }
+        h1, h2, h3 { color: #333; }
+        button, input { padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 3px; }
+        button { background-color: #007bff; color: white; cursor: pointer; transition: background-color 0.3s; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <h1>Solução dos Exercícios de JavaScript (Refatorados para HTML)</h1>
+    <p>O bloco abaixo mostra a saída dos exercícios 1 a 4 e 10 a 19.</p>
+
+    <div id="saida-global" class="resultado" style="background-color: #fffbe6; border: 1px dashed #aa0;">
+        <h2>Saída de Código Geral</h2>
+        <p>Clique no botão 'Executar Demais Exercícios' no final da página para ver o resultado.</p>
+    </div>
+
+    <div class="parte">
+        <h2>Parte 2 – Estruturas Condicionais (Formulário)</h2>
+
+        <h3>5. Verificação de Idade</h3>
+        <input type="number" id="input-idade" placeholder="Sua idade" min="0">
+        <button onclick="verificarIdade()">Verificar</button>
+        <div id="resultado-5" class="resultado"></div>
+
+        <h3>6. Número Par ou Ímpar</h3>
+        <input type="number" id="input-par-impar" placeholder="Digite um número">
+        <button onclick="verificarParImpar()">Verificar</button>
+        <div id="resultado-6" class="resultado"></div>
+
+        <h3>7. Nota de Aluno</h3>
+        <input type="number" id="input-nota" placeholder="Nota (0 a 10)" min="0" max="10" step="0.1">
+        <button onclick="verificarNota()">Verificar</button>
+        <div id="resultado-7" class="resultado"></div>
+
+        <h3>8. Operador Ternário</h3>
+        <input type="number" id="input-ternario" placeholder="Digite um número">
+        <button onclick="verificarTernario()">Verificar</button>
+        <div id="resultado-8" class="resultado"></div>
+    </div>
+
+    <div class="parte">
+        <h2>Parte 3 – Laços de Repetição (Formulário)</h2>
+
+        <h3>9. Tabuada com for</h3>
+        <input type="number" id="input-tabuada" placeholder="Número para tabuada" min="1">
+        <button onclick="gerarTabuada()">Gerar Tabuada</button>
+        <div id="resultado-9" class="resultado"></div>
+    </div>
+
+    <div class="parte">
+        <h2>Executar Demais Exercícios (1 a 4, 10 a 19)</h2>
+        <p>Clique para executar o código dos exercícios que não necessitam de formulário e exibir o resultado no bloco de "Saída de Código Geral".</p>
+        <button onclick="executarDemaisExercicios()">Executar Código (1 a 4, 10 a 19)</button>
+    </div>
+
+    <script>
+        // Função utilitária para adicionar saída ao bloco geral
+        function log(message, clear = false) {
+            const outputDiv = document.getElementById('saida-global');
+            if (clear) {
+                outputDiv.innerHTML = '<h2>Saída de Código Geral</h2>';
+            }
+            outputDiv.innerHTML += message + '<br>';
+        }
+
+        // =================================================================
+        // FUNÇÕES PARA EXERCÍCIOS REFATORADOS COM INPUT (Parte 2 e 3)
+        // =================================================================
+
+        // 5. Verificação de Idade
+        function verificarIdade() {
+            const idadeUsuario = parseInt(document.getElementById('input-idade').value);
+            const resultadoDiv = document.getElementById('resultado-5');
+
+            if (isNaN(idadeUsuario) || idadeUsuario < 0) {
+                resultadoDiv.textContent = 'Erro: Por favor, insira uma idade válida.';
+                return;
+            }
+
+            let classificacao;
+            if (idadeUsuario < 12) {
+                classificacao = "Criança";
+            } else if (idadeUsuario <= 17) {
+                classificacao = "Adolescente";
+            } else {
+                classificacao = "Adulto";
+            }
+
+            resultadoDiv.textContent = `Idade ${idadeUsuario}: ${classificacao}`;
+        }
+
+        // 6. Número Par ou Ímpar
+        function verificarParImpar() {
+            const num = parseInt(document.getElementById('input-par-impar').value);
+            const resultadoDiv = document.getElementById('resultado-6');
+
+            if (isNaN(num)) {
+                resultadoDiv.textContent = 'Erro: Por favor, insira um número válido.';
+                return;
+            }
+
+            const resultado = (num % 2 === 0) ? "Par" : "Ímpar";
+            resultadoDiv.textContent = `O número ${num} é ${resultado}.`;
+        }
+
+        // 7. Nota de Aluno
+        function verificarNota() {
+            const nota = parseFloat(document.getElementById('input-nota').value);
+            const resultadoDiv = document.getElementById('resultado-7');
+
+            if (isNaN(nota) || nota < 0 || nota > 10) {
+                resultadoDiv.textContent = 'Erro: Por favor, insira uma nota válida (0 a 10).';
+                return;
+            }
+
+            let status;
+            if (nota >= 7) {
+                status = "Aprovado";
+            } else if (nota >= 5) {
+                status = "Recuperação";
+            } else {
+                status = "Reprovado";
+            }
+
+            resultadoDiv.textContent = `Nota ${nota}: ${status}.`;
+        }
+
+        // 8. Operador Ternário
+        function verificarTernario() {
+            const valor = parseInt(document.getElementById('input-ternario').value);
+            const resultadoDiv = document.getElementById('resultado-8');
+
+            if (isNaN(valor)) {
+                resultadoDiv.textContent = 'Erro: Por favor, insira um número válido.';
+                return;
+            }
+
+            const resultadoTernario = (valor > 0) ? "Positivo" : (valor < 0) ? "Negativo" : "Zero";
+            resultadoDiv.textContent = `O número ${valor} é: ${resultadoTernario}`;
+        }
+
+        // 9. Tabuada com for
+        function gerarTabuada() {
+            const numeroTabuada = parseInt(document.getElementById('input-tabuada').value);
+            const resultadoDiv = document.getElementById('resultado-9');
+            let tabuadaTexto = '';
+
+            if (isNaN(numeroTabuada)) {
+                resultadoDiv.textContent = 'Erro: Por favor, insira um número válido.';
+                return;
+            }
+
+            tabuadaTexto += `Tabuada de ${numeroTabuada}:\n`;
+            for (let i = 1; i <= 10; i++) {
+                tabuadaTexto += `${numeroTabuada} x ${i} = ${numeroTabuada * i}\n`;
+            }
+
+            resultadoDiv.textContent = tabuadaTexto;
+        }
+
+        // =================================================================
+        // FUNÇÃO PARA EXECUTAR OS DEMAIS EXERCÍCIOS (1 a 4, 10 a 19)
+        // =================================================================
+        function executarDemaisExercicios() {
+            log('', true); // Limpa o output
+
+            log('<h3>Parte 1 – Declaração de Variáveis</h3>');
+
+            // 1. Declaração com let
+            let idade = 35;
+            log(`1. Minha idade hoje é ${idade}`);
+            idade = idade + 5;
+            log(`   E daqui a 5 anos será ${idade}`);
+
+            // 2. Uso de const
+            const PI = 3.14159;
+            log(`2a. Constante PI declarada com ${PI}. (Tentativa de reatribuição resulta em erro de console.)`);
+            log(`2b. Declaração de const sem valor inicial resulta em erro de sintaxe.`);
+
+            // 3. Concatenação de Strings
+            let nome = "Pedro";
+            let sobrenome = "Alves";
+            let anoNascimento = 1998;
+            log(`3. Olá, meu nome é ${nome} ${sobrenome} e eu nasci em ${anoNascimento}.`);
+
+            // 4. Diferença de Escopo
+            let numero = 10;
+            log(`4. Fora do bloco (antes): ${numero}`);
+            {
+              let numero = 20;
+              log(`   Dentro do bloco: ${numero}`);
+            }
+            log(`   Fora do bloco (depois): ${numero}`);
+
+
+            log('<h3>Parte 3 – Laços de Repetição (Continuação)</h3>');
+
+            // 10. Contagem Regressiva com while
+            let contagemTexto = '10. Contagem Regressiva:';
+            let contador = 10;
+            while (contador >= 1) {
+              contagemTexto += ` ${contador}`;
+              contador--;
+            }
+            log(contagemTexto);
+
+            // 11. Percorrendo Objetos com for...in
+            const pessoa = { nome: "Carlos", idade: 45, cidade: "Rio de Janeiro" };
+            log("11. Propriedades de Pessoa (for...in):");
+            for (const chave in pessoa) {
+              if (pessoa.hasOwnProperty(chave)) {
+                log(`   ${chave}: ${pessoa[chave]}`);
+              }
+            }
+
+            // 12. Percorrendo Arrays com for...of
+            const frutas = ["Maçã", "Banana", "Morango", "Abacaxi"];
+            let frutasTexto = '12. Lista de Frutas (for...of):';
+            for (const fruta of frutas) {
+              frutasTexto += ` ${fruta}`;
+            }
+            log(frutasTexto);
+
+
+            log('<h3>Parte 4 – Objetos</h3>');
+
+            // 13. Criação de Objeto
+            const carro = { marca: "Ford", modelo: "Mustang", ano: 1969 };
+            log("13. Objeto Carro:");
+            log(`   Marca: ${carro.marca}`);
+            log(`   Modelo: ${carro.modelo}`);
+            log(`   Ano: ${carro.ano}`);
+
+            // 14. Método em Objeto
+            carro.descricao = function() {
+              return `Marca: ${this.marca}, Modelo: ${this.modelo}, Ano: ${this.ano}`;
+            };
+            log("14. Chamando o método descricao():");
+            log(`   ${carro.descricao()}`);
+
+            // 15. Manipulação de Propriedades
+            let livro = { titulo: "1984", autor: "George Orwell" };
+            livro.ano = 1949;
+            livro.titulo = "A Revolução dos Bichos";
+            delete livro.autor;
+            log("15. Objeto Livro Atualizado (sem autor, título alterado, ano adicionado):");
+            log(`   Objeto: { titulo: '${livro.titulo}', ano: ${livro.ano} }`);
+
+
+            log('<h3>Parte 5 – Arrays com map, filter, sort</h3>');
+
+            // 16. Dobrar Valores (map)
+            const arrayOriginal = [1, 2, 3, 4, 5];
+            const arrayDobrado = arrayOriginal.map(numero => numero * 2);
+            log(`16. Array Original: [${arrayOriginal.join(', ')}]\n   Array Dobrado (map): [${arrayDobrado.join(', ')}]`);
+
+            // 17. Filtrar Números Pares (filter)
+            const arrayNumeros = [10, 15, 20, 25, 30];
+            const arrayPares = arrayNumeros.filter(numero => numero % 2 === 0);
+            log(`17. Array Original: [${arrayNumeros.join(', ')}]\n   Array Pares (filter): [${arrayPares.join(', ')}]`);
+
+            // 18. Ordenação (sort)
+            const arrayDesordenado = [5, 1, 9, 3, 7];
+            const arrayOrdenado = [...arrayDesordenado].sort((a, b) => a - b);
+            log(`18. Array Desordenado: [${arrayDesordenado.join(', ')}]\n   Array Ordenado (sort): [${arrayOrdenado.join(', ')}]`);
+
+            // 19. Encadeando Métodos
+            const arrayParaEncadear = [2, 5, 8, 11, 14];
+            const resultadoEncadeado = arrayParaEncadear
+              .filter(numero => numero > 5)
+              .map(numero => numero * 2);
+            log(`19. Array Original: [${arrayParaEncadear.join(', ')}]\n   Resultado Encadeado (> 5 e * 2): [${resultadoEncadeado.join(', ')}]`);
+
+            log('<p style="color: green; font-weight: bold;">Fim da execução dos demais exercícios.</p>');
+        }
+    </script>
+
+</body>
+</html>
