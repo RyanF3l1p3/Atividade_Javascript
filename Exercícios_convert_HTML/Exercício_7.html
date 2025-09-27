@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 2 - Exercício 7 (Notas)</title>
+    <style>
+        #resultado {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .aprovado { color: green; }
+        .recuperacao { color: orange; }
+        .reprovado { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Estruturas Condicionais: Exercício 7 (Notas)</h1>
+    <p>Clique em **Executar** ou **Atualizar a página** para solicitar a nota.</p>
+    <p>O resultado da avaliação é:</p>
+    <div id="resultado"></div>
+
+    <script>
+        // 7. Nota de Aluno:
+        
+        // 1. Pede a nota ao usuário e converte para número (float).
+        const entrada = prompt("Digite a nota do aluno (de 0 a 10):");
+        const nota = parseFloat(entrada);
+
+        const resultadoDiv = document.getElementById('resultado');
+        let status;
+        let classeCor;
+
+        // 2. Verifica se a nota é válida (é um número e está entre 0 e 10)
+        if (isNaN(nota) || nota < 0 || nota > 10) {
+            status = "Nota inválida. Digite um valor entre 0 e 10.";
+            classeCor = "reprovado";
+            console.error(status);
+
+        } else if (nota >= 7) {
+            // Condição 1: Aprovado
+            status = "APROVADO";
+            classeCor = "aprovado";
+            
+        } else if (nota >= 5) { // Já sabemos que é < 7
+            // Condição 2: Recuperação
+            status = "RECUPERAÇÃO";
+            classeCor = "recuperacao";
+            
+        } else { // nota < 5
+            // Condição 3: Reprovado
+            status = "REPROVADO";
+            classeCor = "reprovado";
+        }
+        
+        // 3. Exibe o resultado na página
+        resultadoDiv.textContent = `Nota: ${nota} - Status: ${status}`;
+        resultadoDiv.className = classeCor;
+        
+    </script>
+</body>
+</html>

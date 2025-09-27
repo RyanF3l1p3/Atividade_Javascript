@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 1 - Exercício 2 (const)</title>
+</head>
+<body>
+    <h1>Declaração de Variáveis: Exercício 2 (const)</h1>
+    <p>O resultado foi impresso no **Console** do navegador (aperte F12 para ver).</p>
+
+    <script>
+        // 2.a. Declare uma constante PI e tente reatribuir
+        console.log("--- 2.a: Tentativa de Reatribuição ---");
+
+        // 1. Declaração e atribuição inicial
+        const PI = 3.14159;
+        console.log("PI inicial:", PI);
+
+        // 2. Tentativa de reatribuição (Isso gerará um erro no console!)
+        try {
+            PI = 3.14; 
+        } catch (error) {
+            console.error("ERRO Capturado:", error.message);
+        }
+
+        // Explicação:
+        console.log("\nExplicação da 2.a:");
+        console.log("Isso acontece porque `const` (de constante) exige que a variável mantenha o mesmo valor durante toda a execução do programa. Uma vez atribuída, ela é 'somente leitura' e não pode ser reatribuída.");
+
+
+        // 2.b. Declare uma constante sem atribuir valor na declaração
+        console.log("\n--- 2.b: Tentativa de Declaração sem Valor Inicial ---");
+        
+        // Tentativa de declaração sem valor (Isso também gerará um erro no console!)
+        try {
+            const SemanasDoAno; // Declaração sem valor inicial
+            SemanasDoAno = 52; 
+            console.log("Semanas do Ano:", SemanasDoAno);
+        } catch (error) {
+            console.error("ERRO Capturado:", error.message);
+        }
+        
+        // Explicação:
+        console.log("\nExplicação da 2.b:");
+        console.log("O erro ocorre porque `const` **deve ser inicializada** na declaração. Se ela não pode ter seu valor alterado depois, faz sentido que o JavaScript exija que você defina o valor dela imediatamente.");
+        
+    </script>
+</body>
+</html>

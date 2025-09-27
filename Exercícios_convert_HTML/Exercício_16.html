@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 5 - Exercício 16 (map)</title>
+    <style>
+        #resultado {
+            font-family: monospace;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrays com map, filter, sort: Exercício 16 (map)</h1>
+    <p>O resultado da duplicação dos números foi impresso no **Console** e exibido abaixo.</p>
+    <div id="resultado"></div>
+
+    <script>
+        // 16. Dobrar Valores (map):
+        
+        // 1. Array inicial
+        const numeros = [1, 2, 3, 4, 5];
+
+        console.log("--- 1. Array Original ---");
+        console.log(numeros);
+        
+        // 2. Use map para criar um novo array com cada número dobrado.
+        // O map percorre cada elemento (num) e retorna o resultado da expressão (num * 2)
+        const numerosDobrados = numeros.map(num => num * 2);
+
+        console.log("\n--- 2. Array Dobrado (usando map) ---");
+        console.log(numerosDobrados); 
+        // Saída esperada: [2, 4, 6, 8, 10]
+        
+        // 3. Exibe o resultado na página
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `Array Original: [${numeros.join(', ')}]<br>
+                                  Array Dobrado: [${numerosDobrados.join(', ')}]`;
+        
+    </script>
+</body>
+</html>

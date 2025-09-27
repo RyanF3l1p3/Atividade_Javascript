@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 2 - Exercício 8 (If/Else Padrão)</title>
+</head>
+<body>
+    <h1>Estruturas Condicionais: Exercício 8 (Padrão)</h1>
+    <p>Clique em **Executar** ou **Atualizar a página** para solicitar o número.</p>
+    <p>A classificação aparecerá no **Console** do navegador (aperte F12 para ver).</p>
+
+    <script>
+        // 8. Classificação de Número com If/Else Padrão:
+        
+        // 1. Pede o número ao usuário e converte para número.
+        const entrada = prompt("Digite um número:");
+        const numero = parseFloat(entrada);
+        
+        // Variável que armazenará o resultado final
+        let resultado;
+
+        // 2. Verifica a validade e aplica a Estrutura Condicional Padrão
+        if (isNaN(numero) || entrada === null || entrada.trim() === "") {
+            resultado = "Entrada inválida. Digite um número válido.";
+            
+        } else if (numero > 0) {
+            // Se for maior que zero
+            resultado = "Positivo";
+            
+        } else if (numero < 0) {
+            // Se for menor que zero
+            resultado = "Negativo";
+            
+        } else {
+            // Caso contrário (se for zero)
+            resultado = "Zero";
+        }
+
+        // 3. Mostra o resultado no console
+        console.log(`Número digitado: ${numero}`);
+        console.log(`Classificação usando If/Else/Else If: ${resultado}`);
+        
+    </script>
+</body>
+</html>

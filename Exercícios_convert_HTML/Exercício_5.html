@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 2 - Exercício 5 (If/Else If)</title>
+    <style>
+        /* Apenas para melhor visualização do resultado na página */
+        #resultado {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estruturas Condicionais: Exercício 5</h1>
+    <p>Clique em **Executar** ou **Atualizar a página** para que o `prompt` solicite a idade.</p>
+    <p>A classificação aparecerá abaixo:</p>
+    <div id="resultado"></div>
+
+    <script>
+        // 5. Verificação de Idade:
+        
+        // 1. Pede a idade ao usuário usando prompt.
+        // O valor do prompt é SEMPRE uma string, por isso usamos parseInt() para converter para número.
+        const idade = parseInt(prompt("Qual é a sua idade?"));
+
+        // Seleciona o elemento onde o resultado será exibido
+        const resultadoDiv = document.getElementById('resultado');
+
+        // 2. Verifica se o valor é um número válido e, em seguida, aplica as condições.
+        if (isNaN(idade) || idade < 0) {
+            // Caso o usuário clique em Cancelar, deixe em branco ou digite algo que não seja um número
+            resultadoDiv.textContent = "Por favor, insira uma idade válida.";
+            console.error("Entrada inválida.");
+
+        } else if (idade < 12) {
+            // Se for menor que 12
+            resultadoDiv.textContent = "Criança";
+            console.log("Classificação: Criança");
+
+        } else if (idade >= 12 && idade <= 17) {
+            // Se estiver entre 12 e 17 (não precisa verificar idade >= 12, pois já foi excluído no 'if' anterior)
+            resultadoDiv.textContent = "Adolescente";
+            console.log("Classificação: Adolescente");
+            
+        } else { // idade >= 18
+            // Se for maior ou igual a 18 (o que restou)
+            resultadoDiv.textContent = "Adulto";
+            console.log("Classificação: Adulto");
+        }
+        
+    </script>
+</body>
+</html>

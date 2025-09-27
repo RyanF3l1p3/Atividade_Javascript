@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 3 - Exercício 12 (for...of)</title>
+    <style>
+        /* Apenas para estilizar a saída */
+        #resultado {
+            font-family: monospace;
+            white-space: pre; 
+            font-size: 1.2em;
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>Laços de Repetição: Exercício 12 (for...of)</h1>
+    <p>As frutas do array, percorridas com `for...of`, são:</p>
+    <div id="resultado"></div>
+
+    <script>
+        // 12. Percorrendo Arrays com for...of:
+        
+        // 1. Cria o array de frutas
+        const frutas = ["Maçã", "Tamarindo", "Laranja", "Uva", "Jamelão"];
+        
+        const resultadoDiv = document.getElementById('resultado');
+        let saida = ''; // Variável para armazenar todo o texto de saída
+
+        console.log("--- Frutas no Array (for...of) ---");
+
+        // 2. Laço FOR...OF: Itera diretamente sobre os VALORES do array
+        for (let fruta of frutas) {
+            // A variável 'fruta' recebe o VALOR de cada elemento do array
+            const linha = `-> ${fruta}`;
+            
+            // Adiciona a linha ao texto de saída
+            saida += linha + '\n';
+            
+            // Também mostra no console
+            console.log(linha);
+        }
+        
+        // 3. Exibe o resultado na div
+        resultadoDiv.textContent = saida;
+        
+    </script>
+</body>
+</html>

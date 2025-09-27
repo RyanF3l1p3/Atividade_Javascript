@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 3 - Exercício 11 (for...in)</title>
+    <style>
+        /* Apenas para estilizar a saída */
+        #resultado {
+            font-family: monospace;
+            white-space: pre; /* Preserva as quebras de linha */
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Laços de Repetição: Exercício 11 (for...in)</h1>
+    <p>As propriedades do objeto `pessoa` e seus valores são:</p>
+    <div id="resultado"></div>
+
+    <script>
+        // 11. Percorrendo Objetos com for...in:
+        
+        // 1. Cria o objeto 'pessoa'
+        const pessoa = {
+            nome: "Carol",
+            idade: 24,
+            cidade: "São Paulo"
+        };
+        
+        const resultadoDiv = document.getElementById('resultado');
+        let saida = ''; // Variável para armazenar todo o texto de saída
+
+        console.log("--- Propriedades e Valores do Objeto Pessoa ---");
+
+        // 2. Laço FOR...IN: Itera sobre as CHAVES (propriedades) do objeto
+        for (let chave in pessoa) {
+            // A chave (propriedade) é representada pela variável 'chave'
+            // O valor é acessado usando pessoa[chave]
+            
+            const valor = pessoa[chave];
+            const linha = `Propriedade: ${chave} | Valor: ${valor}`;
+            
+            // Adiciona a linha ao texto de saída
+            saida += linha + '\n';
+            
+            // Também mostra no console
+            console.log(linha);
+        }
+        
+        // 3. Exibe o resultado na div
+        resultadoDiv.textContent = saida;
+        
+    </script>
+</body>
+</html>

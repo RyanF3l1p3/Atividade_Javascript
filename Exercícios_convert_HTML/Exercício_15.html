@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 4 - Exercício 15 (Manipulação de Propriedades)</title>
+</head>
+<body>
+    <h1>Objetos: Exercício 15 (Manipulação)</h1>
+    <p>O objeto `livro` e suas transformações foram impressos no **Console** do navegador (aperte F12 para ver).</p>
+
+    <script>
+        // 15. Manipulação de Propriedades:
+        
+        // 1. Crie um objeto 'livro' com título e autor.
+        let livro = {
+            titulo: "A Metamorfose",
+            autor: "Franz Kafka"
+        };
+        
+        console.log("--- 1. Objeto Inicial ---");
+        console.log(livro); 
+        // Saída: {titulo: "O Guia do Mochileiro das Galáxias", autor: "Douglas Adams"}
+
+        // 2. Adicione dinamicamente a propriedade 'ano'.
+        // Basta atribuir um valor a uma nova chave (usando a notação de ponto).
+        livro.ano = 1915;
+        
+        console.log("\n--- 2. Após Adicionar 'ano' ---");
+        console.log(livro); 
+        // Saída: {titulo: "...", autor: "...", ano: 1979}
+
+        // 3. Altere o 'título'.
+        // Basta atribuir um novo valor a uma chave existente.
+        livro.titulo = "A Vida, o Universo e Tudo Mais";
+        
+        console.log("\n--- 3. Após Alterar 'titulo' ---");
+        console.log(livro); 
+        // Saída: {titulo: "A Vida, o Universo e Tudo Mais", autor: "...", ano: 1979}
+
+        // 4. Exclua a propriedade 'autor'.
+        // Usamos o operador 'delete'.
+        delete livro.autor;
+        
+        console.log("\n--- 4. Após Excluir 'autor' ---");
+        console.log(livro); 
+        // Saída: {titulo: "A Vida, o Universo e Tudo Mais", ano: 1979}
+
+        // 5. Mostre o objeto atualizado no console (já feito nas etapas 2, 3 e 4, mas aqui está o resumo final)
+        console.log("\n--- 5. Objeto Final Atualizado ---");
+        console.log(livro);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 5 - Exercício 17 (filter)</title>
+    <style>
+        #resultado {
+            font-family: monospace;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrays com map, filter, sort: Exercício 17 (filter)</h1>
+    <p>O resultado da filtragem dos números pares foi impresso no **Console** e exibido abaixo.</p>
+    <div id="resultado"></div>
+
+    <script>
+        // 17. Filtrar Números Pares (filter):
+        
+        // 1. Array inicial
+        const numeros = [10, 15, 20, 25, 30];
+
+        console.log("--- 1. Array Original ---");
+        console.log(numeros);
+        
+        // 2. Use filter para criar um array apenas com números pares.
+        // A função de callback deve retornar TRUE para números pares.
+        // num % 2 === 0 verifica se o resto da divisão por 2 é zero.
+        const numerosPares = numeros.filter(num => num % 2 === 0);
+
+        console.log("\n--- 2. Array Filtrado (apenas pares) ---");
+        console.log(numerosPares); 
+        // Saída esperada: [10, 20, 30]
+        
+        // 3. Exibe o resultado na página
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `Array Original: [${numeros.join(', ')}]<br>
+                                  Array de Pares: [${numerosPares.join(', ')}]`;
+        
+    </script>
+</body>
+</html>

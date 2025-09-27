@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 5 - Exercício 19 (Encadeamento)</title>
+    <style>
+        #resultado {
+            font-family: monospace;
+            font-size: 1.2em;
+            color: darkviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrays com map, filter, sort: Exercício 19 (Encadeamento)</h1>
+    <p>O resultado do encadeamento (filtra > 5 e depois dobra) foi impresso no **Console** e exibido abaixo.</p>
+    <div id="resultado"></div>
+
+    <script>
+        // 19. Encadeando Métodos:
+        
+        // 1. Array inicial
+        const valores = [2, 5, 8, 11, 14];
+
+        console.log("--- 1. Array Original ---");
+        console.log(valores); // [2, 5, 8, 11, 14]
+        
+        // 2. Encadeamento:
+        const resultadoFinal = valores
+            .filter(num => num > 5) // 1º Passo: Filtra números maiores que 5.
+            // O resultado intermediário é: [8, 11, 14]
+            
+            .map(num => num * 2);  // 2º Passo: Dobra os números restantes.
+            // O resultado final é: [16, 22, 28]
+
+        console.log("\n--- 2. Resultado Final (Filtrado e Mapeado) ---");
+        console.log(resultadoFinal); 
+        // Saída esperada: [16, 22, 28]
+        
+        // 3. Exibe o resultado na página
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `Array Original: [${valores.join(', ')}]<br>
+                                  Array Final: [${resultadoFinal.join(', ')}]`;
+        
+    </script>
+</body>
+</html>

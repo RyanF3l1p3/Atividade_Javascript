@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 4 - Exercício 14 (Método em Objeto)</title>
+</head>
+<body>
+    <h1>Objetos: Exercício 14 (Método)</h1>
+    <p>O resultado da chamada ao método `descricao()` foi impresso no **Console** do navegador (aperte F12 para ver).</p>
+
+    <script>
+        // 14. Método em Objeto:
+        
+        // 1. Crie o objeto 'carro' com propriedades
+        const carro = {
+            marca: "Honda",
+            modelo: "Civic",
+            ano: 2024,
+            
+            // 2. Adicione o método 'descricao'
+            // O uso de 'this.propriedade' garante que estamos acessando
+            // as propriedades do próprio objeto 'carro'.
+            descricao: function() {
+                return `Marca: ${this.marca}, Modelo: ${this.modelo}, Ano: ${this.ano}`;
+            }
+        };
+
+        // 3. Chame o método (o parênteses é obrigatório!)
+        const detalhesDoCarro = carro.descricao();
+
+        // 4. Mostre o resultado no console
+        console.log("--- Chamada do Método descricao() ---");
+        console.log(detalhesDoCarro);
+        
+    </script>
+</body>
+</html>

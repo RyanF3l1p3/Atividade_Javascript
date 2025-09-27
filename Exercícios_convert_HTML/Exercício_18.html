@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 5 - Exercício 18 (sort)</title>
+    <style>
+        #resultado {
+            font-family: monospace;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrays com map, filter, sort: Exercício 18 (sort)</h1>
+    <p>O resultado da ordenação em ordem crescente foi impresso no **Console** e exibido abaixo.</p>
+    <div id="resultado"></div>
+
+    <script>
+        // 18. Ordenação (sort):
+        
+        // 1. Array inicial
+        // Usamos let/var aqui porque o método sort() altera o array ORIGINAL (in place).
+        let numeros = [5, 1, 9, 3, 7];
+
+        console.log("--- 1. Array Original ---");
+        console.log(numeros); // [5, 1, 9, 3, 7]
+        
+        // 2. Use sort para ordenar em ordem crescente.
+        // Importante: Para números, SEMPRE use uma função de comparação: (a, b) => a - b
+        numeros.sort((a, b) => a - b);
+
+        console.log("\n--- 2. Array Ordenado (crescente) ---");
+        console.log(numeros); 
+        // Saída esperada: [1, 3, 5, 7, 9]
+        
+        // 3. Exibe o resultado na página
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `Array Ordenado (Crescente): [${numeros.join(', ')}]`;
+        
+    </script>
+</body>
+</html>

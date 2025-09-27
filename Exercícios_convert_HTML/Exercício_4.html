@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 1 - Exercício 4 (Escopo)</title>
+</head>
+<body>
+    <h1>Declaração de Variáveis: Exercício 4 (Escopo)</h1>
+    <p>O resultado foi impresso no **Console** do navegador (aperte F12 para ver).</p>
+
+    <script>
+        // 4. Diferença de Escopo:
+        
+        // 1. Declaração fora do bloco (Escopo Global ou Escopo de Função, se estiver em uma)
+        let numero = 10;
+        console.log(`Valor inicial de 'numero' (fora do bloco): ${numero}`); // Saída: 10
+        
+        // Início do Bloco
+        {
+            // 2. Declaração DENTRO do bloco. 
+            // 'let' cria uma NOVA variável, isolada APENAS neste bloco.
+            let numero = 20; 
+            
+            console.log(`Valor de 'numero' DENTRO do bloco: ${numero}`); // Saída: 20
+        } 
+        // Fim do Bloco
+        
+        // 3. Mostra o valor FORA do bloco novamente
+        console.log(`Valor de 'numero' FINAL (fora do bloco): ${numero}`); // Saída: 10
+        
+        console.log("\nExplicação:");
+        console.log("O valor de 'numero' fora do bloco permanece 10 porque a instrução `let numero = 20;` dentro do bloco criou uma variável **local** e temporária, isolada apenas para aquele bloco.");
+
+    </script>
+</body>
+</html>
